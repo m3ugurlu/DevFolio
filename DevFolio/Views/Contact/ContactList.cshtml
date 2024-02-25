@@ -1,0 +1,37 @@
+﻿@model List<DevFolio.Models.TblContact>
+@{
+    ViewBag.Title = "ContactList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>İletişim Formu Mesaj Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>S.N</th>
+        <th>Adı Soyadı</th>
+        <th>E-Mail</th>
+        <th>Mesaj Başlığı</th>
+        <th>Mesaj Tarihi</th>
+        <th>Okundu Mu?</th>
+        <th>Mesajı Oku</th>
+        <th>Cevap</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.ContactID</td>
+    <td>@item.NameSurname</td>
+    <td>@item.Email</td>
+    <td>@item.Subject</td>
+    <td>@item.SendMessageDate</td>
+    <td>@item.IsRead</td>
+    <td><a href="#" class="btn btn-check">Mesajı Oku</a></td>
+    <td><a href="#" class="btn btn-danger">Cevap Ver</a></td>
+    <td><a href="/Contact/DeleteContact/@item.ContactID" class="btn btn-success">Sil</a></td>
+</tr>
+    }
+
+</table>
+
+
